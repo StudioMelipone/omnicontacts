@@ -24,7 +24,7 @@ module OmniContacts
       end
 
       def request_authorization_from_user
-        [302, {"location" => authorization_url}, []]
+        [302, {"location" => authorization_url, 'Content-Type' => ''}, []]
       end
 
       def redirect_uri
