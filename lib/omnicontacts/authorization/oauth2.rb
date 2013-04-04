@@ -57,6 +57,8 @@ module OmniContacts
 
       def access_token_from_response response
         json = JSON.parse(response)
+        # STDOUT.puts "----------------------------OmniContacts::Authorization::OAuth2.access_token_from_response------------#{json}"
+        @env["omnicontacts.token_params"] = { access_token: json["access_token"], token_type: json["token_type"], refresh_token: json["refresh_token"], expires_at: Time.now.advance(seconds: json["expires_in"].to_i) }
         raise json["error"] if json["error"]
         [json["access_token"], json["token_type"], json["refresh_token"]]
       end
