@@ -56,6 +56,8 @@ module OmniContacts
               gd_full_name = gd_name.elements['gd:fullName']
               contact[:name] = gd_full_name.text if gd_full_name
             end
+            gd_avatar = entry.elements['link[@type="image/*"]']
+            contact[:avatar_url] = gd_avatar ? gd_avatar.attribute('href').to_s : nil
             contacts << contact
           end
         end
