@@ -12,7 +12,7 @@ module OmniContacts
         @auth_host = "accounts.google.com"
         @authorize_path = "/o/oauth2/auth"
         @auth_token_path = "/o/oauth2/token"
-        @scope = "https://www.google.com/m8/feeds https://www.googleapis.com/auth/userinfo.email"
+        @scope = "https://www.google.com/m8/feeds https://www.googleapis.com/auth/userinfo.email https://apps-apis.google.com/a/feeds/groups/"
         @contacts_host = "www.google.com"
         @contacts_path = "/m8/feeds/profiles/domain/{domain}/full"
         @max_results =  (args[3] && args[3][:max_results]) || 100
